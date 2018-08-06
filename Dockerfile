@@ -3,7 +3,7 @@ MAINTAINER Gavin Mogan "gavin@gavinmogan.com"
 
 # Install all the plugins
 RUN mkdir -p /usr/src/nextcloud/apps/spreed \
-    && curl -L https://github.com/nextcloud/spreed/releases/download/v3.99.8/spreed-3.99.8.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/spreed
+    && curl -L https://github.com/nextcloud/spreed/releases/download/v3.2.5/spreed-3.2.5.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/spreed
 RUN mkdir -p /usr/src/nextcloud/apps/deck \
     && curl -L https://github.com/nextcloud/deck/releases/download/v0.4.1/deck.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/deck
 RUN mkdir -p /usr/src/nextcloud/apps/notes \
