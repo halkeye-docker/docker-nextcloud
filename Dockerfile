@@ -20,7 +20,5 @@ RUN mkdir -p /usr/src/nextcloud/apps/files_opds \
     && curl -L https://github.com/Yetangitu/owncloud-apps/raw/master/dist/files_opds-0.8.8-NC.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_opds
 RUN mkdir -p /usr/src/nextcloud/apps/files_reader \
     && curl -L https://github.com/Yetangitu/owncloud-apps/raw/master/dist/files_reader-1.2.3-NC.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_reader
-RUN mkdir -p /usr/src/nextcloud/apps/qownnotesapi \
-    && curl -L https://github.com/pbek/qownnotesapi/releases/download/17.5.0/qownnotesapi.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/qownnotesapi
 VOLUME ["/usr/src/nextcloud/data", "/usr/src/nextcloud/config", "/tmp/mysql.sock", "/var/run/mysqld/mysqld.sock"]
 EXPOSE 80
