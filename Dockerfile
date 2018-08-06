@@ -25,6 +25,6 @@ RUN mkdir -p /usr/src/nextcloud/apps/ocsms \
 RUN mkdir -p /usr/src/nextcloud/apps/audioplayer \
     && curl -L https://github.com/Rello/audioplayer/releases/download/2.3.1/audioplayer-2.3.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/audioplayer
 # once installed, apps dir should not be writable
-RUN chown nobody:nobody -R /usr/src/nextcloud/apps /usr/src/nextcloud/custom_apps
+RUN chown nobody: -R /usr/src/nextcloud/apps /usr/src/nextcloud/custom_apps
 VOLUME ["/usr/src/nextcloud/data", "/usr/src/nextcloud/config"]
 EXPOSE 80
