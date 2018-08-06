@@ -20,5 +20,11 @@ RUN mkdir -p /usr/src/nextcloud/apps/files_opds \
     && curl -L https://github.com/Yetangitu/owncloud-apps/raw/master/dist/files_opds-0.8.8-NC.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_opds
 RUN mkdir -p /usr/src/nextcloud/apps/files_reader \
     && curl -L https://github.com/Yetangitu/owncloud-apps/raw/master/dist/files_reader-1.2.3-NC.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_reader
+RUN mkdir -p /usr/src/nextcloud/apps/ocsms \
+    && curl -L https://github.com/nextcloud/ocsms/releases/download/1.13.1/ocsms-1.13.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/ocsms
+RUN mkdir -p /usr/src/nextcloud/apps/audioplayer \
+    && curl -L https://github.com/Rello/audioplayer/releases/download/2.3.1/audioplayer-2.3.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/audioplayer
+# once installed, apps dir should not be writable
+RUN chown nobody:nobody -R /usr/src/nextcloud/apps /usr/src/nextcloud/custom_apps
 VOLUME ["/usr/src/nextcloud/data", "/usr/src/nextcloud/config"]
 EXPOSE 80
