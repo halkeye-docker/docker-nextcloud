@@ -11,7 +11,7 @@ RUN mkdir -p /usr/src/nextcloud/apps/notes \
 RUN mkdir -p /usr/src/nextcloud/apps/contacts \
     && curl -L https://github.com/nextcloud/contacts/releases/download/v2.1.5/contacts.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/contacts
 RUN mkdir -p /usr/src/nextcloud/apps/twofactor_totp \
-    && curl -L https://github.com/nextcloud/twofactor_totp/releases/download/v1.5.0/twofactor_totp.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/twofactor_totp
+    && curl -L https://github.com/nextcloud/twofactor_totp/releases/download/v1.4.1/twofactor_totp.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/twofactor_totp
 RUN mkdir -p /usr/src/nextcloud/apps/calendar \
     && curl -L https://github.com/nextcloud/calendar/releases/download/v1.6.1/calendar.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/calendar
 RUN mkdir -p /usr/src/nextcloud/apps/tasks \
