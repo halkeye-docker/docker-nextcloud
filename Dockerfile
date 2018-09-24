@@ -24,6 +24,9 @@ RUN mkdir -p /usr/src/nextcloud/apps/ocsms \
     && curl -L https://github.com/nextcloud/ocsms/releases/download/1.13.1/ocsms-1.13.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/ocsms
 RUN mkdir -p /usr/src/nextcloud/apps/audioplayer \
     && curl -L https://github.com/Rello/audioplayer/releases/download/2.3.1/audioplayer-2.3.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/audioplayer
+RUN mkdir -p /usr/src/nextcloud/apps/files_markdown \
+    && curl -L https://github.com/icewind1991/files_markdown/releases/download/v2.0.4/files_markdown.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_markdown
+
 # once installed, apps dir should not be writable
 RUN chown nobody: -R /usr/src/nextcloud/apps /usr/src/nextcloud/custom_apps
 VOLUME ["/usr/src/nextcloud/data", "/usr/src/nextcloud/config"]
