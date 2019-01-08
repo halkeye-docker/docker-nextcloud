@@ -1,5 +1,5 @@
 FROM nextcloud:13.0.6
-MAINTAINER Gavin Mogan "gavin@gavinmogan.com"
+MAINTAINER Gavin Mogan <gavin@gavinmogan.com>
 
 # Install all the plugins
 RUN mkdir -p /usr/src/nextcloud/apps/spreed \
