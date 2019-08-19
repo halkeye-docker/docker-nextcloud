@@ -9,7 +9,7 @@ RUN mkdir -p /usr/src/nextcloud/apps/contacts \
 RUN mkdir -p /usr/src/nextcloud/apps/twofactor_totp \
     && curl -sL https://github.com/nextcloud/twofactor_totp/releases/download/v3.0.1/twofactor_totp.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/twofactor_totp
 RUN mkdir -p /usr/src/nextcloud/apps/calendar \
-    && curl -sL https://github.com/nextcloud/calendar/releases/download/v1.6.5/calendar.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/calendar
+    && curl -sL https://github.com/nextcloud/calendar/releases/download/v1.7.0/calendar.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/calendar
 RUN mkdir -p /usr/src/nextcloud/apps/tasks \
     && curl -sL https://github.com/nextcloud/tasks/releases/download/v0.11.1/tasks.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/tasks
 #RUN mkdir -p /usr/src/nextcloud/apps/files_opds \
