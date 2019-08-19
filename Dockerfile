@@ -1,4 +1,4 @@
-FROM nextcloud:13.0.6
+FROM nextcloud:16.0.4
 MAINTAINER Gavin Mogan <docker@gavinmogan.com>
 
 # Install all the plugins
