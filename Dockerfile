@@ -22,6 +22,22 @@ RUN mkdir -p /usr/src/nextcloud/apps/ocsms \
 #    && curl -sL https://github.com/Rello/audioplayer/releases/download/2.3.1/audioplayer-2.3.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/audioplayer
 #RUN mkdir -p /usr/src/nextcloud/apps/files_markdown \
 #    && curl -sL https://github.com/icewind1991/files_markdown/releases/download/v2.0.4/files_markdown.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_markdown
+RUN mkdir -p /usr/src/nextcloud/apps/files_accesscontrol \
+    && curl -sL https://github.com/nextcloud/files_accesscontrol/releases/download/v1.6.0/files_accesscontrol-1.6.0.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_accesscontrol
+RUN mkdir -p /usr/src/nextcloud/apps/files_automatedtagging \
+    && curl -sL https://github.com/nextcloud/files_automatedtagging/releases/download/v1.6.0/files_automatedtagging-1.6.0.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_automatedtagging
+RUN mkdir -p /usr/src/nextcloud/apps/files_retention \
+    && curl -sL https://github.com/nextcloud/files_retention/releases/download/v1.5.1/files_retention-1.5.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_retention
+RUN mkdir -p /usr/src/nextcloud/apps/terms_of_service \
+    && curl -sL https://github.com/nextcloud/terms_of_service/releases/download/v1.2.2/terms_of_service-1.2.2.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/terms_of_service
+RUN mkdir -p /usr/src/nextcloud/apps/deck \
+    && curl -sL https://github.com/nextcloud/deck/releases/download/v0.6.6/deck.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/deck
+RUN mkdir -p /usr/src/nextcloud/apps/announcementcenter \
+    && curl -sL https://github.com/nextcloud/announcementcenter/releases/download/v3.5.1/announcementcenter-3.5.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/announcementcenter
+RUN mkdir -p /usr/src/nextcloud/apps/circles \
+    && curl -sL https://github.com/nextcloud/circles/releases/download/v0.16.9/circles-0.16.9.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/circles
+RUN mkdir -p /usr/src/nextcloud/apps/dashboard \
+    && curl -sL https://github.com/nextcloud/dashboard/releases/download/v6.0.0/dashboard-6.0.0.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/dashboard
 
 # once installed, apps dir should not be writable
 RUN chown nobody: -R /usr/src/nextcloud/apps /usr/src/nextcloud/custom_apps
