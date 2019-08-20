@@ -35,9 +35,11 @@ RUN mkdir -p /usr/src/nextcloud/apps/deck \
 RUN mkdir -p /usr/src/nextcloud/apps/announcementcenter \
     && curl -sL https://github.com/nextcloud/announcementcenter/releases/download/v3.5.1/announcementcenter-3.5.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/announcementcenter
 RUN mkdir -p /usr/src/nextcloud/apps/circles \
-    && curl -sL https://github.com/nextcloud/circles/releases/download/v0.16.9/circles-0.16.9.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/circles
+    && curl -sL https://github.com/nextcloud/circles/releases/download/v0.17.7/circles-0.17.7.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/circles
 RUN mkdir -p /usr/src/nextcloud/apps/dashboard \
     && curl -sL https://github.com/nextcloud/dashboard/releases/download/v6.0.0/dashboard-6.0.0.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/dashboard
+RUN mkdir -p /usr/src/nextcloud/apps/groupfolders \
+    && curl -sL https://github.com/nextcloud/groupfolders/releases/download/v4.0.5/groupfolders-4.0.5.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/groupfolders
 
 # once installed, apps dir should not be writable
 RUN chown nobody: -R /usr/src/nextcloud/apps /usr/src/nextcloud/custom_apps
