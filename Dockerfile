@@ -32,6 +32,8 @@ RUN mkdir -p /usr/src/nextcloud/apps/dashboard \
  && curl -sL https://github.com/nextcloud/dashboard/releases/download/v6.0.0/dashboard-6.0.0.tar.gz | tar xz --strip-components=0 -C /usr/src/nextcloud/apps/dashboard
 RUN mkdir -p /usr/src/nextcloud/apps/groupfolders \
  && curl -sL https://github.com/nextcloud/groupfolders/releases/download/v6.0.5/groupfolders.tar.gz | tar xz --strip-components=0 -C /usr/src/nextcloud/apps/groupfolders
+RUN mkdir -p /usr/src/nextcloud/apps/user_saml \
+ && curl -sL https://github.com/nextcloud/user_saml/releases/download/v3.0.1/user_saml-3.0.1.tar.gz | tar xz --strip-components=0 -C /usr/src/nextcloud/apps/user_saml
 
 # once installed, apps dir should not be writable
 RUN chown nobody: -R /usr/src/nextcloud/apps /usr/src/nextcloud/custom_apps
