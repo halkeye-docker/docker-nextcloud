@@ -1,0 +1,49 @@
+baseDir: /usr/src/nextcloud/apps
+baseVersion: nextcloud:18.0.3-apache
+maintainer: "Gavin Mogan <docker@gavinmogan.com>"
+plugins:
+  - id: notes
+    stripComponents: 1
+    github: nextcloud/notes
+  - id: contacts
+    stripComponents: 1
+    github: nextcloud/contacts
+  - id: twofactor_totp
+    stripComponents: 1
+    github: nextcloud/twofactor_totp
+  - id: calendar
+    stripComponents: 1
+    github: nextcloud/calendar
+  - id: tasks
+    stripComponents: 1
+    github: nextcloud/tasks
+  - id: ocsms
+    stripComponents: 1
+    github: nextcloud/ocsms
+  - id: files_accesscontrol
+    stripComponents: 1
+    github: nextcloud/files_accesscontrol
+  - id: files_automatedtagging
+    stripComponents: 1
+    github: nextcloud/files_automatedtagging
+  - id: files_retention
+    stripComponents: 1
+    github: nextcloud/files_retention
+  - id: terms_of_service
+    stripComponents: 1
+    github: nextcloud/terms_of_service
+  - id: deck
+    stripComponents: 1
+    github: nextcloud/deck
+  - id: announcementcenter
+    stripComponents: 1
+    github: nextcloud/announcementcenter
+  - id: circles
+    stripComponents: 1
+    github: nextcloud/circles
+  - id: dashboard
+    stripComponents: 1
+    github: nextcloud/dashboard
+  - id: groupfolders
+    stripComponents: 1
+    github: nextcloud/groupfolders
