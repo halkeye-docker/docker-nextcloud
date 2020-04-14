@@ -1,27 +1,30 @@
-This builds a docker container with owncloud running in it. It uses a docker volume in order to allow you to persist the data between different containers. It is setup for mysql but, it does not have a linked mysql container. This is because I prefer to run mysql outside of docker but, pull requests are always welcome.
+This is a docker image that pulls the official docker images for nextcloud, then adds plugins on top of it, then makes the plugin directory read only so it can't be updated from the website.
 
 # Usage #
 
 ## Building the image ##
 
-run `docker build -t 'name/owncloud' .`
+1. Update your conf.yaml (Optional)
+2. make generate
+3. make build REGISTRY=yourname
+4. make push REGISTRY=yourname # (Optional)
 
 ## Running ##
 
-1. You'll either need to build the image or pull `halkeye/owncloud`.
-2. Run it `docker run -d -m 1g -p 127.0.0.1:9000:80 --name="owncloud" -v /var/owncloud/data:/var/www/owncloud/data -v /var/owncloud/config:/var/www/owncloud/config halkeye/owncloud`
+1. You'll either need to build the image or pull `halkeye/nextcloud`.
+2. Run it `docker run -d -m 1g -p 127.0.0.1:9000:80 --name="nextcloud" -v /var/nextcloud/data:/var/www/nextcloud/data -v /var/nextcloud/config:/var/www/nextcloud/config halkeye/nextcloud`
 3. Setup a reverse proxy to it
 
 ```
 server {
 	     listen 80;
-	     server_name owncloud.example.com;
+	     server_name nextcloud.example.com;
 	     return 301 https://$host$request_uri;
 }
 
 server {
 	listen 443;
-	server_name owncloud.example.com;
+	server_name nextcloud.example.com;
 	ssl on;
         ssl_certificate /etc/ssl/private/example_com.cert;
         ssl_certificate_key /etc/ssl/private/example_com.key;
