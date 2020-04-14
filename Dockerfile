@@ -28,8 +28,6 @@ RUN mkdir -p /usr/src/nextcloud/apps/announcementcenter \
  && curl -sL https://github.com/nextcloud/announcementcenter/releases/download/v3.8.0/announcementcenter-3.8.0.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/announcementcenter
 RUN mkdir -p /usr/src/nextcloud/apps/circles \
  && curl -sL https://github.com/nextcloud/circles/releases/download/v0.17.13/circles-0.17.13.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/circles
-RUN mkdir -p /usr/src/nextcloud/apps/dashboard \
- && curl -sL https://github.com/nextcloud/dashboard/releases/download/v6.0.0/dashboard-6.0.0.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/dashboard
 RUN mkdir -p /usr/src/nextcloud/apps/groupfolders \
  && curl -sL https://github.com/nextcloud/groupfolders/releases/download/v6.0.5/groupfolders.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/groupfolders
 RUN mkdir -p /usr/src/nextcloud/apps/user_saml \

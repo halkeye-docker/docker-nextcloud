@@ -41,9 +41,6 @@ plugins:
   - id: circles
     stripComponents: 1
     github: nextcloud/circles
-  - id: dashboard
-    stripComponents: 1
-    github: nextcloud/dashboard
   - id: groupfolders
     stripComponents: 1
     github: nextcloud/groupfolders
