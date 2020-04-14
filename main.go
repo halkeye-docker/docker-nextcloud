@@ -10,11 +10,12 @@ import (
 	"strings"
 
 	"github.com/google/go-github/v31/github"
+	"github.com/hashicorp/go-version"
 	"golang.org/x/oauth2"
 	"gopkg.in/yaml.v2"
 )
 
-type Config struct {
+type config struct {
 	BaseDir     string `yaml:"baseDir"`
 	BaseVersion string `yaml:"baseVersion"`
 	Maintainer  string `yaml:"maintainer"`
@@ -42,7 +43,7 @@ func main() {
 		panic(fmt.Errorf("yamlFile.Get err   #%v ", err))
 	}
 
-	c := &Config{}
+	c := &config{}
 
 	err = yaml.Unmarshal([]byte(yamlFile), &c)
 	if err != nil {
@@ -58,19 +59,40 @@ func main() {
 		org := strings.Split(plugin.Github, "/")[0]
 		repo := strings.Split(plugin.Github, "/")[1]
 
-		release, _, err := client.Repositories.GetLatestRelease(context.Background(), org, repo)
+		var newestRelease *github.RepositoryRelease
+		releases, _, err := client.Repositories.ListReleases(context.Background(), org, repo, nil)
 		if err != nil {
-			fmt.Println(err)
-			return
+			panic(fmt.Errorf("Error getting releases for plugin %s - #%v ", plugin.Github, err))
 		}
-		if len(release.Assets) != 1 {
-			log.Fatalf("Too many releases for %s", plugin.Github)
+		for idx := range releases {
+			if *releases[idx].Prerelease {
+				continue
+			}
+			releaseVersion, err := version.NewVersion(*releases[idx].TagName)
+
+			if err != nil {
+				continue
+			}
+
+			if newestRelease == nil {
+				newestRelease = releases[idx]
+			}
+			newestReleaseVersion, err := version.NewVersion(*newestRelease.TagName)
+			if err != nil {
+				continue
+			}
+			if newestReleaseVersion.LessThan(releaseVersion) {
+				newestRelease = releases[idx]
+			}
+		}
+		if len(newestRelease.Assets) != 1 {
+			log.Fatalf("Too many assets for release %d for %s", newestRelease.ID, plugin.Github)
 		}
 		fmt.Printf(
 			"RUN mkdir -p %s/apps/%s \\\n && curl -sL %s | tar xz --strip-components=%d -C %s/apps/%s\n",
 			c.BaseDir,
 			plugin.ID,
-			*release.Assets[0].BrowserDownloadURL,
+			*newestRelease.Assets[0].BrowserDownloadURL,
 			plugin.StripComponents,
 			c.BaseDir,
 			plugin.ID,
