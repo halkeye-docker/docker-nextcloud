@@ -67,7 +67,7 @@ func main() {
 			log.Fatalf("Too many releases for %s", plugin.Github)
 		}
 		fmt.Printf(
-			"RUN mkdir -p %s/%s \\\n && curl -sL %s | tar xz --strip-components=%d -C %s/%s\n",
+			"RUN mkdir -p %s/apps/%s \\\n && curl -sL %s | tar xz --strip-components=%d -C %s/apps/%s\n",
 			c.BaseDir,
 			plugin.ID,
 			*release.Assets[0].BrowserDownloadURL,
@@ -78,7 +78,7 @@ func main() {
 	}
 	fmt.Println("")
 	fmt.Println("# once installed, apps dir should not be writable")
-	fmt.Printf("RUN chown nobody: -R %s /usr/src/nextcloud/custom_apps\n", c.BaseDir)
-	fmt.Println("VOLUME [\"/usr/src/nextcloud/data\", \"/usr/src/nextcloud/config\"]")
+	fmt.Printf("RUN chown nobody: -R %s/apps\n", c.BaseDir)
+	fmt.Printf("VOLUME [\"%s/data\", \"%s/config\"]\n", c.BaseDir, c.BaseDir)
 	fmt.Println("EXPOSE 80")
 }
