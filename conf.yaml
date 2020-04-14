@@ -44,6 +44,6 @@ plugins:
   - id: groupfolders
     stripComponents: 1
     github: nextcloud/groupfolders
-  - id: user_saml
+  - id: oidc_login
     stripComponents: 1
-    github: nextcloud/user_saml
+    github: pulsejet/nextcloud-oidc-login

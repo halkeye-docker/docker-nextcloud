@@ -30,8 +30,8 @@ RUN mkdir -p /usr/src/nextcloud/apps/circles \
  && curl -sL https://github.com/nextcloud/circles/releases/download/v0.18.4/circles-0.18.4.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/circles
 RUN mkdir -p /usr/src/nextcloud/apps/groupfolders \
  && curl -sL https://github.com/nextcloud/groupfolders/releases/download/v6.0.5/groupfolders.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/groupfolders
-RUN mkdir -p /usr/src/nextcloud/apps/user_saml \
- && curl -sL https://github.com/nextcloud/user_saml/releases/download/v3.0.1/user_saml-3.0.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/user_saml
+RUN mkdir -p /usr/src/nextcloud/apps/oidc_login \
+ && curl -sL https://github.com/pulsejet/nextcloud-oidc-login/releases/download/v1.2.6/oidc_login.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/oidc_login
 
 # once installed, apps dir should not be writable
 RUN chown nobody: -R /usr/src/nextcloud/apps
