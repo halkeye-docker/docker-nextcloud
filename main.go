@@ -17,12 +17,12 @@ import (
 type Config struct {
 	BaseDir     string `yaml:"baseDir"`
 	BaseVersion string `yaml:"baseVersion"`
-	Maintainer  string
+	Maintainer  string `yaml:"maintainer"`
 	Plugins     []struct {
-		ID              string
-		StripComponents int
-		Dir             string
-		Github          string
+		ID              string `yaml:"id"`
+		StripComponents int    `yaml:"stripComponents"`
+		Dir             string `yaml:"dir"`
+		Github          string `yaml:"github"`
 	}
 }
 
