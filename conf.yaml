@@ -1,4 +1,4 @@
-baseDir: /var/www/nextcloud
+baseDir: /usr/src/nextcloud
 baseVersion: nextcloud:18.0.3-apache
 maintainer: "Gavin Mogan <docker@gavinmogan.com>"
 plugins:
