@@ -1,4 +1,4 @@
-FROM nextcloud:18.0.3-apache
+FROM nextcloud:18.0.4-apache
 MAINTAINER Gavin Mogan <docker@gavinmogan.com>
 
 # Install all the plugins
