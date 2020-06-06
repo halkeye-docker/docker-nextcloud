@@ -1,5 +1,5 @@
 baseDir: /usr/src/nextcloud
-baseVersion: nextcloud:18.0.3-apache
+baseVersion: nextcloud:19.0.0-apache
 maintainer: "Gavin Mogan <docker@gavinmogan.com>"
 plugins:
   - id: notes
