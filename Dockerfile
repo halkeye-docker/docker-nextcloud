@@ -1,4 +1,4 @@
-FROM nextcloud:20.0.0-apache
+FROM nextcloud:20.0.1-apache
 LABEL maintainer="Gavin Mogan <docker@gavinmogan.com>"
 
 # force pipefail on all run commands
@@ -25,8 +25,6 @@ RUN mkdir -p /usr/src/nextcloud/apps/files_retention \
  && curl -sL https://github.com/nextcloud/files_retention/releases/download/v1.8.2/files_retention-1.8.2.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_retention
 RUN mkdir -p /usr/src/nextcloud/apps/terms_of_service \
  && curl -sL https://github.com/nextcloud/terms_of_service/releases/download/v1.6.1/terms_of_service-1.6.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/terms_of_service
-RUN mkdir -p /usr/src/nextcloud/apps/deck \
- && curl -sL https://github.com/nextcloud/deck/releases/download/v1.1.2/deck.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/deck
 RUN mkdir -p /usr/src/nextcloud/apps/announcementcenter \
  && curl -sL https://github.com/nextcloud/announcementcenter/releases/download/v4.0.0/announcementcenter-4.0.0.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/announcementcenter
 RUN mkdir -p /usr/src/nextcloud/apps/circles \
@@ -37,13 +35,20 @@ RUN mkdir -p /usr/src/nextcloud/apps/oidc_login \
  && curl -sL https://github.com/pulsejet/nextcloud-oidc-login/releases/download/v1.6.0/oidc_login.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/oidc_login
 RUN mkdir -p /usr/src/nextcloud/apps/bruteforcesettings \
  && curl -sL https://github.com/nextcloud/bruteforcesettings/releases/download/v2.0.1/bruteforcesettings.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/bruteforcesettings
-RUN mkdir -p /usr/src/nextcloud/apps/mail \
- && curl -sL https://github.com/nextcloud/mail/releases/download/v1.5.0/mail.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/mail
-RUN mkdir -p /usr/src/nextcloud/apps/richdocuments \
- && curl -sL https://github.com/nextcloud/richdocuments/releases/download/v3.7.5/richdocuments.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/richdocuments
+RUN mkdir -p /usr/src/nextcloud/apps/spreed \
+ && curl -sL https://github.com/nextcloud/spreed/releases/download/v10.0.1/spreed-10.0.1.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/spreed
+RUN mkdir -p /usr/src/nextcloud/apps/sentry \
+ && curl -sL https://github.com/ChristophWurst/nextcloud_sentry/releases/download/v7.0.0/sentry.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/sentry
+RUN mkdir -p /usr/src/nextcloud/apps/breeze-dark \
+ && curl -sL https://github.com/mwalbeck/nextcloud-breeze-dark/releases/download/v20.0.0/breezedark.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/breeze-dark
+RUN mkdir -p /usr/src/nextcloud/apps/epubreader \
+ && curl -sL https://github.com/e-alfred/epubreader/releases/download/1.4.3/epubreader-1.4.3.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/epubreader
+RUN mkdir -p /usr/src/nextcloud/apps/files_photospheres \
+ && curl -sL https://github.com/nextcloud/files_photospheres/releases/download/1.20.0/files_photospheres.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/files_photospheres
 
 # once installed, apps dir should not be writable
 RUN chown nobody: -R /usr/src/nextcloud/apps
 RUN mkdir -p /usr/src/nextcloud/custom_apps && chown nobody: -R /usr/src/nextcloud/custom_apps
 COPY entrypoint.sh /entrypoint.sh
+COPY occ /bin/occ
 EXPOSE 80

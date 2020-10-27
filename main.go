@@ -106,5 +106,6 @@ func main() {
 	fmt.Printf("RUN chown nobody: -R %s/apps\n", c.BaseDir)
 	fmt.Printf("RUN mkdir -p %s/custom_apps && chown nobody: -R %s/custom_apps\n", c.BaseDir, c.BaseDir)
 	fmt.Printf("COPY entrypoint.sh /entrypoint.sh\n")
+	fmt.Printf("COPY occ /bin/occ\n")
 	fmt.Println("EXPOSE 80")
 }

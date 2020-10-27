@@ -1,0 +1,2 @@
+#!/bin/sh
+su www-data -s /bin/bash bash -c 'php occ $@'

@@ -1,5 +1,5 @@
 baseDir: /usr/src/nextcloud
-baseVersion: nextcloud:20.0.0-apache
+baseVersion: nextcloud:20.0.1-apache
 maintainer: "Gavin Mogan <docker@gavinmogan.com>"
 plugins:
   - id: notes
@@ -32,9 +32,6 @@ plugins:
   - id: terms_of_service
     stripComponents: 1
     github: nextcloud/terms_of_service
-  - id: deck
-    stripComponents: 1
-    github: nextcloud/deck
   - id: announcementcenter
     stripComponents: 1
     github: nextcloud/announcementcenter
@@ -50,9 +47,18 @@ plugins:
   - id: bruteforcesettings
     stripComponents: 1
     github: nextcloud/bruteforcesettings
-  - id: mail
+  - id: spreed
     stripComponents: 1
-    github: nextcloud/mail
-  - id: richdocuments
+    github: nextcloud/spreed
+  - id: sentry
     stripComponents: 1
-    github: nextcloud/richdocuments
+    github: ChristophWurst/nextcloud_sentry
+  - id: breeze-dark
+    stripComponents: 1
+    github: mwalbeck/nextcloud-breeze-dark
+  - id: epubreader
+    stripComponents: 1
+    github: e-alfred/epubreader
+  - id: files_photospheres
+    stripComponents: 1
+    github: nextcloud/files_photospheres
