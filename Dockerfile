@@ -32,6 +32,12 @@ RUN mkdir -p /usr/src/nextcloud/apps/groupfolders \
  && curl -sL https://github.com/nextcloud/groupfolders/releases/download/v8.1.0/groupfolders-8.1.0.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/groupfolders
 RUN mkdir -p /usr/src/nextcloud/apps/oidc_login \
  && curl -sL https://github.com/pulsejet/nextcloud-oidc-login/releases/download/v1.6.0/oidc_login.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/oidc_login
+RUN mkdir -p /usr/src/nextcloud/apps/bruteforcesettings \
+ && curl -sL https://github.com/nextcloud/bruteforcesettings/releases/download/v2.0.1/bruteforcesettings.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/bruteforcesettings
+RUN mkdir -p /usr/src/nextcloud/apps/mail \
+ && curl -sL https://github.com/nextcloud/mail/releases/download/v1.5.0/mail.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/mail
+RUN mkdir -p /usr/src/nextcloud/apps/richdocuments \
+ && curl -sL https://github.com/nextcloud/richdocuments/releases/download/v3.7.5/richdocuments.tar.gz | tar xz --strip-components=1 -C /usr/src/nextcloud/apps/richdocuments
 
 # once installed, apps dir should not be writable
 RUN chown nobody: -R /usr/src/nextcloud/apps

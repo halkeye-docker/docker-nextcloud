@@ -47,3 +47,12 @@ plugins:
   - id: oidc_login
     stripComponents: 1
     github: pulsejet/nextcloud-oidc-login
+  - id: bruteforcesettings
+    stripComponents: 1
+    github: nextcloud/bruteforcesettings
+  - id: mail
+    stripComponents: 1
+    github: nextcloud/mail
+  - id: richdocuments
+    stripComponents: 1
+    github: nextcloud/richdocuments
