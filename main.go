@@ -89,7 +89,7 @@ func main() {
 			log.Fatalf("Too many assets for release %d for %s", newestRelease.ID, plugin.Github)
 		}
 		fmt.Printf(
-			"RUN mkdir -p %s/apps/%s \\\n && curl -sL %s | tar xz --strip-components=%d -C %s/apps/%s\n",
+			"RUN set -o pipefail && mkdir -p %s/apps/%s \\\n && curl -sL %s | tar xz --strip-components=%d -C %s/apps/%s\n",
 			c.BaseDir,
 			plugin.ID,
 			*newestRelease.Assets[0].BrowserDownloadURL,
@@ -101,6 +101,8 @@ func main() {
 	fmt.Println("")
 	fmt.Println("# once installed, apps dir should not be writable")
 	fmt.Printf("RUN chown nobody: -R %s/apps\n", c.BaseDir)
+	fmt.Printf("RUN mkdir -p %s/custom_apps && chown nobody: -R %s/custom_apps\n", c.BaseDir, c.BaseDir)
+	fmt.Printf("RUN mkdir -p /data && ln -s /data %s/version.php", c.BaseDir)
 	fmt.Printf("VOLUME [\"%s/data\", \"%s/config\"]\n", c.BaseDir, c.BaseDir)
 	fmt.Println("EXPOSE 80")
 }
