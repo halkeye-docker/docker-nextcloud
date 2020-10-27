@@ -1,5 +1,6 @@
 FROM nextcloud:20.0.0-apache
-MAINTAINER Gavin Mogan <docker@gavinmogan.com>
+LABEL maintainer="Gavin Mogan <docker@gavinmogan.com>"
+
 
 # Install all the plugins
 RUN set -o pipefail && mkdir -p /usr/src/nextcloud/apps/notes \

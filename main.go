@@ -50,7 +50,7 @@ func main() {
 		log.Fatalf("error: %v", err)
 	}
 	fmt.Printf("FROM %s\n", c.BaseVersion)
-	fmt.Printf("MAINTAINER %s\n", c.Maintainer)
+	fmt.Printf("LABEL maintainer=\"%s\"\n", c.Maintainer)
 	fmt.Println("")
 	fmt.Println("# Install all the plugins")
 	// loop through plugins
