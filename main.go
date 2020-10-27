@@ -105,7 +105,7 @@ func main() {
 	fmt.Println("# once installed, apps dir should not be writable")
 	fmt.Printf("RUN chown nobody: -R %s/apps\n", c.BaseDir)
 	fmt.Printf("RUN mkdir -p %s/custom_apps && chown nobody: -R %s/custom_apps\n", c.BaseDir, c.BaseDir)
-	fmt.Printf("RUN mkdir -p /data && ln -s /data %s/version.php\n", c.BaseDir)
+	fmt.Printf("RUN mkdir -p /data && ln -s %s/version.php /data/version.php\n", c.BaseDir)
 	fmt.Printf("VOLUME [\"%s/data\", \"%s/config\"]\n", c.BaseDir, c.BaseDir)
 	fmt.Println("EXPOSE 80")
 }

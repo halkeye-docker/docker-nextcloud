@@ -45,6 +45,6 @@ RUN mkdir -p /usr/src/nextcloud/apps/richdocuments \
 # once installed, apps dir should not be writable
 RUN chown nobody: -R /usr/src/nextcloud/apps
 RUN mkdir -p /usr/src/nextcloud/custom_apps && chown nobody: -R /usr/src/nextcloud/custom_apps
-RUN mkdir -p /data && ln -s /data /usr/src/nextcloud/version.php
+RUN mkdir -p /data && ln -s /usr/src/nextcloud/version.php /data/version.php
 VOLUME ["/usr/src/nextcloud/data", "/usr/src/nextcloud/config"]
 EXPOSE 80
