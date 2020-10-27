@@ -52,6 +52,9 @@ func main() {
 	fmt.Printf("FROM %s\n", c.BaseVersion)
 	fmt.Printf("LABEL maintainer=\"%s\"\n", c.Maintainer)
 	fmt.Println("")
+	fmt.Println("# force pipefail on all run commands")
+	fmt.Println("SHELL [\"/bin/bash\", \"-o\", \"pipefail\", \"-c\"]")
+	fmt.Println("")
 	fmt.Println("# Install all the plugins")
 	// loop through plugins
 	for idx := range c.Plugins {
@@ -89,7 +92,7 @@ func main() {
 			log.Fatalf("Too many assets for release %d for %s", newestRelease.ID, plugin.Github)
 		}
 		fmt.Printf(
-			"RUN set -o pipefail && mkdir -p %s/apps/%s \\\n && curl -sL %s | tar xz --strip-components=%d -C %s/apps/%s\n",
+			"RUN mkdir -p %s/apps/%s \\\n && curl -sL %s | tar xz --strip-components=%d -C %s/apps/%s\n",
 			c.BaseDir,
 			plugin.ID,
 			*newestRelease.Assets[0].BrowserDownloadURL,
